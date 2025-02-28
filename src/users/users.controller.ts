@@ -2,6 +2,7 @@ import { Controller, Get, Post, Delete, Param, Body, UseGuards } from '@nestjs/c
 import { UsersService } from './users.service';
 import { AuthGuard } from '@nestjs/passport';
 import { RolesGuard } from 'src/auth/guards/roles.guard';
+import { CreateUserDto } from './dto/create-user.dto'
 
 @Controller('users')
 export class UsersController {
@@ -26,8 +27,8 @@ export class UsersController {
     }
 
     @Post()
-    async createUser(@Body() body : {email: string, password: string, role: string}){
-        return await this.usersService.createUser(body.email, body.password, body.role)
+    async createUser(@Body() createUserDto : CreateUserDto){
+        return await this.usersService.createUser(createUserDto)
     }
 
     @Delete(':id')
