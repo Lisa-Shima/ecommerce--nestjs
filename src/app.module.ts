@@ -7,6 +7,7 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { ProductsModule } from './products/products.module';
 import { StocksModule } from './stocks/stocks.module';
+import { BranchesModule } from './branches/branches.module';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { StocksModule } from './stocks/stocks.module';
       url: process.env.DATABASE_URL,
       autoLoadEntities: true,
       synchronize: true
-    }), UsersModule, AuthModule, ProductsModule, StocksModule
+    }), UsersModule, AuthModule, ProductsModule, StocksModule, BranchesModule
   ],
   controllers: [AppController],
   providers: [AppService],

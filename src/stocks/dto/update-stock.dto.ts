@@ -4,4 +4,8 @@ export class UpdateStockDto{
     @IsNumber()
     @IsOptional()
     name: string
+
+    @IsNumber()
+    @IsOptional()
+    branchId: number
 }
