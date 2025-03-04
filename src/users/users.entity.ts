@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Cart } from "src/carts/carts.entity";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 
 @Entity()
 export class User{
@@ -13,4 +14,7 @@ export class User{
 
     @Column({default: 'customer'}) // Role can be customer or admin
     role: string;
+
+    @OneToMany(() => Cart, (cart) => cart.user)
+    carts: Cart[]
 }
